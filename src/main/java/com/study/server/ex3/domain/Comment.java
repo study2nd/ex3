@@ -46,8 +46,15 @@ public class Comment {
         return board;
     }
 
+    // Comment를 등록할 때, 어느 게시판에 속할 것인지 지정
     public void setBoard(Board board) {
+        // 예) 2번 댓글, 2번 댓글이 속하는 게시판을 지정
         this.board = board;
+        // 예) 속하는 게시판이 3번 게시판이면,
+        // 3번 게시판이 갖고 있는 댓글 목록
+        // 이 댓글 목록에 나(2번 댓글)이 이미 포함되어 있으면
+        // 댓글 목록에 추가 하지 않음
+        // 없으면, 댓글 목록에 추가
         if (!board.getComments().contains(this)) {
             board.getComments().add(this);
         }
